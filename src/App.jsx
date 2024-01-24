@@ -1,4 +1,6 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom"
+import CryptoDetail from "./pages/CryptoDetail"
+import CryptoHome from "./pages/CryptoDetail"
 
 function App() {
   
@@ -7,9 +9,9 @@ function App() {
 
     <BrowserRouter>
     <Routes>
-      <Route path="/"/>
-      <Route path="/coin/:id"/>
-      
+      <Route path="/" element={<CryptoHome/>}/>
+      <Route path="/coin/:id" element={<CryptoDetail/>}/>
+
     </Routes>
     
     </BrowserRouter>
