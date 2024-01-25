@@ -1,20 +1,32 @@
-import React from 'react'
+import { TrendingUp } from "../icons/icon";
+import { TrendingDown } from "../icons/icon";
+import { currencyFormat } from "../../utils";
 
-const Coin = ({coin}) => {
-    console.log(coin);
-
+const Coin = ({ coin }) => {
+  console.log(coin);
   return (
+
     <>
-    <div className="grid grid-col-3 md:grid-cols-4 font-light p-2 rounded border-gray-200 border-b hover:bg-gray-200">
+    
+      <div className="grid grid-cols-3 sm:grid-cols-4 font-light p-2 rounded border-gray-200 border-b hover:bg-gray-200">
         <div className="flex items-center gap-1 w-full">
-            <img className='w-6' src={coin.image} alt={coin.name} />
-            <p>{coin.name}</p>
+          <img className="w-6" src={coin.image} alt={coin.name} />
+          <p>{coin.name}</p>
+          <span className="text-xs">({coin.symbol})</span>
         </div>
+        <span className="w-full text-center">{currencyFormat(coin.current_price)}</span>
+        <span className={`flex gap-1 ${coin.price_change_percentage_24h < 0 ? 'text-red-400' : 'text-green-400'}`}>
+          {coin.price_change_percentage_24h < 0 ? <TrendingDown /> : <TrendingUp />}
+          {coin.price_change_percentage_24h}
+        </span>
+        <div className="hidden sm:block">
+          <p className="font-semibold">Market Cap</p>
+          <span>{currencyFormat(coin.market_cap)}</span>
+        </div>
+      </div>
 
-        <span>{coin.current_price}</span>
-
-    </div>
-    </>
+      </>
+    
   )
 }
 
