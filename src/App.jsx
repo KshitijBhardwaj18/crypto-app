@@ -1,6 +1,6 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import CryptoDetail from "./pages/CryptoDetail"
-import CryptoHome from "./pages/CryptoDetail"
+import CryptoHome from "./pages/CryptoHome"
 import Navbar from "./components/Navbar"
 
 function App() {
