@@ -1,9 +1,10 @@
-import React from 'react'
+
+import Trending from '../components/trending'
 
 const CryptoHome = () => {
   return (
-    <div>
-      
+    <div className='wrapper-container'>
+      <Trending/>
     </div>
   )
 }
